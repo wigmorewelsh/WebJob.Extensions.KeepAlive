@@ -2,5 +2,5 @@ namespace Webjob.Extensions.KeepAlive;
 
 public class KeepAliveOptions
 {
-    public int Instances { get; set; } = 10;
+    public int Instances { get; set; }
 }

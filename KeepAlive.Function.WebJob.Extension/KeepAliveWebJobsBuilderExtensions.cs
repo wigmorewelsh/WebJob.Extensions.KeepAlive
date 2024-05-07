@@ -15,7 +15,9 @@ public static class KeepAliveWebJobsBuilderExtensions
         builder.AddExtension<KeepAliveConfigProvider>()
             .ConfigureOptions<KeepAliveOptions>((config, path, options) =>
             {
-                config.GetSection(path).Bind(options);
+                IConfigurationSection section = config.GetSection(path);
+
+                options.Instances = section.GetValue<int>("Instances", 10);
             });
 
         return builder;
