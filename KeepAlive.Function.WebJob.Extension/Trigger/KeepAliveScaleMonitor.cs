@@ -25,11 +25,19 @@ internal class KeepAliveScaleMonitor : IScaleMonitor
 
     public ScaleStatus GetScaleStatus(ScaleStatusContext context)
     {
-        if(context.WorkerCount < _options.Value.Instances)
+        if (context.WorkerCount < _options.Value.Instances)
         {
             return new ScaleStatus()
             {
                 Vote = ScaleVote.ScaleOut
+            };
+        }
+        
+        if (context.WorkerCount > _options.Value.Instances)
+        {
+            return new ScaleStatus()
+            {
+                Vote = ScaleVote.ScaleIn
             };
         }
         
