@@ -20,7 +20,8 @@ internal class KeepAliveTriggerBinding : ITriggerBinding
 
     public Task<ITriggerData> BindAsync(object value, ValueBindingContext context)
     {
-        return Task.FromResult<ITriggerData>(new TriggerData(null, new Dictionary<string, object>()));
+        var keepAliveValueProvider = new KeepAliveValueProvider(value, _parameter);
+        return Task.FromResult<ITriggerData>(new TriggerData(keepAliveValueProvider, new Dictionary<string, object>()));
     }
 
     public async Task<IListener> CreateListenerAsync(ListenerFactoryContext context)
