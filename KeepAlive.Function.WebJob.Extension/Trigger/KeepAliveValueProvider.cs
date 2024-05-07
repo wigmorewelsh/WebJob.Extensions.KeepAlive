@@ -23,7 +23,7 @@ internal class KeepAliveValueProvider : IValueProvider
     {
         if (_parameterTypeIsString)
         {
-            return Task.FromResult((object)JsonConvert.SerializeObject(_value));
+            return (object)JsonConvert.SerializeObject(_value);
         }
         
         return _value;
