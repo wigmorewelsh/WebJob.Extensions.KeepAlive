@@ -1,4 +1,3 @@
-using Azure.Functions.Worker.Extensions.KeepAlive;
 using Microsoft.Azure.WebJobs.Description;
 using Microsoft.Azure.WebJobs.Host.Bindings;
 using Microsoft.Azure.WebJobs.Host.Config;

@@ -15,8 +15,4 @@
         <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.39" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\KeepAlive.Function.Worker.Extension\KeepAlive.Function.Worker.Extension.csproj" />
-    </ItemGroup>
-
 </Project>
