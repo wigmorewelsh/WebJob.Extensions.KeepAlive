@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 
 namespace Webjob.Extensions.KeepAlive.Trigger;
 
-internal class KeepAliveScaleMonitor : IScaleMonitor
+internal class KeepAliveScaleMonitor : IScaleMonitor<KeepAliveMetric>
 {
     private readonly string _functionId;
     private readonly IOptions<KeepAliveOptions> _options;
@@ -20,12 +20,27 @@ internal class KeepAliveScaleMonitor : IScaleMonitor
 
     public Task<ScaleMetrics> GetMetricsAsync()
     {
-        return Task.FromResult(new ScaleMetrics() { Timestamp = DateTime.UtcNow });
+        return Task.FromResult((ScaleMetrics)new KeepAliveMetric() { Timestamp = DateTime.UtcNow });
+    }
+
+    public ScaleStatus GetScaleStatus(ScaleStatusContext<KeepAliveMetric> context)
+    {
+        return GetScaleStatus(context.WorkerCount);
+    }
+
+    Task<KeepAliveMetric> IScaleMonitor<KeepAliveMetric>.GetMetricsAsync()
+    {
+        return Task.FromResult(new KeepAliveMetric() { Timestamp = DateTime.UtcNow });
     }
 
     public ScaleStatus GetScaleStatus(ScaleStatusContext context)
     {
-        if (context.WorkerCount < _options.Value.Instances)
+        return GetScaleStatus(context.WorkerCount);
+    }
+
+    private ScaleStatus GetScaleStatus(int contextWorkerCount)
+    {
+        if (contextWorkerCount < _options.Value.Instances)
         {
             return new ScaleStatus()
             {
@@ -33,7 +48,7 @@ internal class KeepAliveScaleMonitor : IScaleMonitor
             };
         }
         
-        if (context.WorkerCount > _options.Value.Instances)
+        if (contextWorkerCount > _options.Value.Instances)
         {
             return new ScaleStatus()
             {
@@ -46,5 +61,8 @@ internal class KeepAliveScaleMonitor : IScaleMonitor
             Vote = ScaleVote.None
         };
     }
+}
 
+internal class KeepAliveMetric : ScaleMetrics
+{
 }
