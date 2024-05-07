@@ -56,6 +56,6 @@ jobs:
       - name: Publish github
         run: dotnet nuget push "**/*.nupkg" --source "github" --api-key ${{ secrets.GITHUB_TOKEN }}
 #      - name: Publish Nuget
-#        if: contains(github.ref, 'master')
+#        if: contains(github.ref, 'main')
 #        run: dotnet nuget push "**/*.nupkg" --source "nuget.org" --api-key ${{ secrets.NUGETORG }}
 
