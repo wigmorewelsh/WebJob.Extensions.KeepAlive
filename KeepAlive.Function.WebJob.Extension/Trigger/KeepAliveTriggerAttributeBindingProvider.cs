@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.Azure.WebJobs.Host.Triggers;
 using Microsoft.Extensions.Options;
 
@@ -14,6 +15,12 @@ internal class KeepAliveTriggerAttributeBindingProvider : ITriggerBindingProvide
 
     public async Task<ITriggerBinding> TryCreateAsync(TriggerBindingProviderContext context)
     {
+        KeepAliveTriggerAttribute triggerAttribute = context.Parameter.GetCustomAttribute<KeepAliveTriggerAttribute>(inherit: false);
+        if (triggerAttribute is null)
+        {
+            return null;
+        }
+        
         return new KeepAliveTriggerBinding(context.Parameter, _options);
     }
 }
