@@ -17,7 +17,7 @@
     
     <ItemGroup>
         <AssemblyAttribute Include="Microsoft.Azure.Functions.Worker.Extensions.Abstractions.ExtensionInformation">
-            <_Parameter1>KeepAlive.Function.WebJob.Extention</_Parameter1>
+            <_Parameter1>KeepAlive.Function.WebJob.Extension</_Parameter1>
             <_Parameter2>$(GitVersion_SemVer)</_Parameter2>
         </AssemblyAttribute>
     </ItemGroup>
