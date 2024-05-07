@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\KeepAlive.Functions.Worker.Extension\KeepAlive.Functions.Worker.Extension.csproj" />
+      <ProjectReference Include="..\KeepAlive.Function.Worker.Extension\KeepAlive.Function.Worker.Extension.csproj" />
     </ItemGroup>
 
 </Project>
