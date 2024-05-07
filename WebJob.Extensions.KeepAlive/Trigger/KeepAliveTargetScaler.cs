@@ -6,10 +6,13 @@ namespace Webjob.Extensions.KeepAlive.Trigger;
 internal class KeepAliveTargetScaler : ITargetScaler
 {
     private readonly IOptions<KeepAliveOptions> _options;
+    
+    public TargetScalerDescriptor TargetScalerDescriptor { get; }
 
-    public KeepAliveTargetScaler(IOptions<KeepAliveOptions> options)
+    public KeepAliveTargetScaler(string functionId, IOptions<KeepAliveOptions> options)
     {
         _options = options;
+        TargetScalerDescriptor = new TargetScalerDescriptor(functionId);
     }
 
     public Task<TargetScalerResult> GetScaleResultAsync(TargetScalerContext context)
@@ -20,5 +23,4 @@ internal class KeepAliveTargetScaler : ITargetScaler
         });
     }
 
-    public TargetScalerDescriptor TargetScalerDescriptor { get; }
 }

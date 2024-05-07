@@ -14,6 +14,6 @@ public class KeepAliveTriggerAttributeBindingProvider : ITriggerBindingProvider
 
     public async Task<ITriggerBinding> TryCreateAsync(TriggerBindingProviderContext context)
     {
-        return new KeepAliveTriggerBinding(_options);
+        return new KeepAliveTriggerBinding(context.Parameter, _options);
     }
 }

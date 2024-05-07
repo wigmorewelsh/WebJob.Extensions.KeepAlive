@@ -17,12 +17,12 @@ internal class KeepAliveTriggerListener : IListener, IScaleMonitorProvider, ITar
 
     public IScaleMonitor GetMonitor()
     {
-        return new KeepAliveScaleMonitor(_options);
+        return new KeepAliveScaleMonitor(_functionId, _options);
     }
 
     public ITargetScaler GetTargetScaler()
     {
-        return new KeepAliveTargetScaler(_options);
+        return new KeepAliveTargetScaler(_functionId, _options);
     }
 
     public void Dispose()

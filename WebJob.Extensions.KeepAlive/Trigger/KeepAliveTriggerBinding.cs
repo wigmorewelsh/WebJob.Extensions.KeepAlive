@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.Azure.WebJobs.Host.Bindings;
 using Microsoft.Azure.WebJobs.Host.Listeners;
 using Microsoft.Azure.WebJobs.Host.Protocols;
@@ -8,10 +9,12 @@ namespace Webjob.Extensions.KeepAlive.Trigger;
 
 public class KeepAliveTriggerBinding : ITriggerBinding
 {
+    private readonly ParameterInfo _parameter;
     private readonly IOptions<KeepAliveOptions> _options;
 
-    public KeepAliveTriggerBinding(IOptions<KeepAliveOptions> options)
+    public KeepAliveTriggerBinding(ParameterInfo parameter, IOptions<KeepAliveOptions> options)
     {
+        _parameter = parameter;
         _options = options;
     }
 
@@ -29,8 +32,8 @@ public class KeepAliveTriggerBinding : ITriggerBinding
     {
         return new ParameterDescriptor()
         {
-            Name = "KeepAliveTrigger",
-            Type = "KeepAliveTrigger"
+            Name = _parameter.Name,
+            Type = KeepAliveConstants.KeepaliveTrigger
         };
     }
 

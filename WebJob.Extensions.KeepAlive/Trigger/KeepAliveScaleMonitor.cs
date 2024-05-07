@@ -5,11 +5,17 @@ namespace Webjob.Extensions.KeepAlive.Trigger;
 
 internal class KeepAliveScaleMonitor : IScaleMonitor
 {
+    private readonly string _functionId;
     private readonly IOptions<KeepAliveOptions> _options;
+    
+    public ScaleMonitorDescriptor Descriptor { get; }
 
-    public KeepAliveScaleMonitor(IOptions<KeepAliveOptions> options)
+    public KeepAliveScaleMonitor(string functionId, IOptions<KeepAliveOptions> options)
     {
+        _functionId = functionId;
         _options = options;
+        
+        Descriptor = new ScaleMonitorDescriptor($"{_functionId}-{KeepAliveConstants.KeepaliveTrigger}", functionId);
     }
 
     public Task<ScaleMetrics> GetMetricsAsync()
@@ -33,5 +39,4 @@ internal class KeepAliveScaleMonitor : IScaleMonitor
         };
     }
 
-    public ScaleMonitorDescriptor Descriptor { get; }
 }
