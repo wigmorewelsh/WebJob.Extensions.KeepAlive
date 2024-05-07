@@ -1,6 +1,8 @@
 using Microsoft.Azure.WebJobs.Host.Listeners;
 using Microsoft.Azure.WebJobs.Host.Scale;
 
+namespace Webjob.Extensions.KeepAlive.Trigger;
+
 internal class KeepAliveTriggerListener : IListener, IScaleMonitorProvider, ITargetScalerProvider
 {
     public IScaleMonitor GetMonitor()

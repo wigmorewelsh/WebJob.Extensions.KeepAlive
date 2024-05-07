@@ -4,6 +4,15 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>Webjob.Extensions.KeepAlive</RootNamespace>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.39" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Azure.Functions.Worker.Extensions.KeepAlive\Azure.Functions.Worker.Extensions.KeepAlive.csproj" />
+    </ItemGroup>
 
 </Project>

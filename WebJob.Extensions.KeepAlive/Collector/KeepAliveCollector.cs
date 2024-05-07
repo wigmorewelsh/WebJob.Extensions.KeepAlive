@@ -1,5 +1,7 @@
 using Microsoft.Azure.WebJobs;
 
+namespace Webjob.Extensions.KeepAlive.Collector;
+
 public class KeepAliveCollector<T> : IAsyncCollector<T>
 {
     public KeepAliveCollector(KeepAliveBindingContext context)

@@ -3,6 +3,8 @@ using Microsoft.Azure.WebJobs.Host.Listeners;
 using Microsoft.Azure.WebJobs.Host.Protocols;
 using Microsoft.Azure.WebJobs.Host.Triggers;
 
+namespace Webjob.Extensions.KeepAlive.Trigger;
+
 public class KeepAliveTriggerBinding : ITriggerBinding
 {
     public Task<ITriggerData> BindAsync(object value, ValueBindingContext context)

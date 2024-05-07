@@ -1,5 +1,7 @@
 using Microsoft.Azure.WebJobs.Description;
 
+namespace Webjob.Extensions.KeepAlive.Collector;
+
 [AttributeUsage(AttributeTargets.Parameter)]
 [Binding]
 public class KeepAliveAttribute : Attribute
