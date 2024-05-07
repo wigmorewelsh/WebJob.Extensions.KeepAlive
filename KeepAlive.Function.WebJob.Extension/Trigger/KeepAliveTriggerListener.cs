@@ -46,9 +46,11 @@ internal class KeepAliveTriggerListener : IListener, IScaleMonitorProvider, ITar
     private async Task Worker()
     {
         using var timer = new PeriodicTimer(TimeSpan.FromSeconds(15));
-        while (await timer.WaitForNextTickAsync(_linkedToken.Token))
+        _linkedToken.Token.Register(timer.Dispose);
+        while (await timer.WaitForNextTickAsync())
         {
-            _contextExecutor.TryExecuteAsync(new TriggeredFunctionData { TriggerValue = new KeepAliveValue() }, _linkedToken.Token);
+            if (_linkedToken.Token.IsCancellationRequested) return;
+            _contextExecutor.TryExecuteAsync(new TriggeredFunctionData { TriggerValue = new KeepAliveValue() }, CancellationToken.None);
         }
     }
 
