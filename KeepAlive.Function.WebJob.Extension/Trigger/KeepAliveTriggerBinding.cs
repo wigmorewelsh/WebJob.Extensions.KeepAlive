@@ -25,7 +25,7 @@ internal class KeepAliveTriggerBinding : ITriggerBinding
 
     public async Task<IListener> CreateListenerAsync(ListenerFactoryContext context)
     {
-        return new KeepAliveTriggerListener(context.Descriptor.Id, _options);
+        return new KeepAliveTriggerListener(context.Descriptor.Id, context.Executor, _options);
     }
 
     public ParameterDescriptor ToParameterDescriptor()
