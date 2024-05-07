@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 
 namespace Webjob.Extensions.KeepAlive.Trigger;
 
-public class KeepAliveTriggerBinding : ITriggerBinding
+internal class KeepAliveTriggerBinding : ITriggerBinding
 {
     private readonly ParameterInfo _parameter;
     private readonly IOptions<KeepAliveOptions> _options;

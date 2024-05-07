@@ -1,6 +1,6 @@
 namespace Webjob.Extensions.KeepAlive.Collector;
 
-public class KeepAliveBindingContext 
+internal class KeepAliveBindingContext 
 {
     public int Instances { get; set; }
 }

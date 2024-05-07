@@ -1,6 +1,6 @@
 namespace Webjob.Extensions.KeepAlive.Trigger;
 
-public class KeepAliveConstants
+internal class KeepAliveConstants
 {
     public const string KeepaliveTrigger = "KeepAliveTrigger";
 }

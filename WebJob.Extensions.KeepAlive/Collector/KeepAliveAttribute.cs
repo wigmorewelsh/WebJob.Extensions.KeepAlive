@@ -4,7 +4,7 @@ namespace Webjob.Extensions.KeepAlive.Collector;
 
 [AttributeUsage(AttributeTargets.Parameter)]
 [Binding]
-public class KeepAliveAttribute : Attribute
+public sealed class KeepAliveAttribute : Attribute
 {
     /// <summary>
     /// Constructs a new instance.

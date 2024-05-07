@@ -2,7 +2,7 @@ using Microsoft.Azure.WebJobs;
 
 namespace Webjob.Extensions.KeepAlive.Collector;
 
-public class KeepAliveBindingConverter<T> : IConverter<KeepAliveAttribute, IAsyncCollector<T>>
+internal class KeepAliveBindingConverter<T> : IConverter<KeepAliveAttribute, IAsyncCollector<T>>
 {
     private readonly KeepAliveConfigProvider configProvider;
 
