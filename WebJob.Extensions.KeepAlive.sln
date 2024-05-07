@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebJob.Extensions.KeepAlive", "WebJob.Extensions.KeepAlive\WebJob.Extensions.KeepAlive.csproj", "{52F88EEE-CD13-47DD-B8E5-BD2BA9B28F51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepAlive.WebJob.Extension", "KeepAlive.WebJob.Extension\KeepAlive.WebJob.Extension.csproj", "{52F88EEE-CD13-47DD-B8E5-BD2BA9B28F51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Functions.Worker.Extensions.KeepAlive", "Azure.Functions.Worker.Extensions.KeepAlive\Azure.Functions.Worker.Extensions.KeepAlive.csproj", "{2B797A9A-D393-4509-A64A-A43AD44B1D27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepAlive.Functions.Worker.Extension", "KeepAlive.Functions.Worker.Extension\KeepAlive.Functions.Worker.Extension.csproj", "{2B797A9A-D393-4509-A64A-A43AD44B1D27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

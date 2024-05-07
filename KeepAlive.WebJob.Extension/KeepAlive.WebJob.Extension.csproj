@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Azure.Functions.Worker.Extensions.KeepAlive\Azure.Functions.Worker.Extensions.KeepAlive.csproj" />
+      <ProjectReference Include="..\KeepAlive.Functions.Worker.Extension\KeepAlive.Functions.Worker.Extension.csproj" />
     </ItemGroup>
 
 </Project>
